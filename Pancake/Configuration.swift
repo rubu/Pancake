@@ -6,8 +6,12 @@
 //  Copyright © 2017 0bmxa. All rights reserved.
 //
 
-import CoreAudio.CoreAudioTypes
-
+// From 10.15 the CoreAudioTypes from CoreAudio has been moved to CoreAudioTypes
+#if canImport(CoreAudioTypes)
+    import CoreAudioTypes.CoreAudioBaseTypes
+#else
+    import CoreAudio.CoreAudioTypes
+#endif
 
 public struct Configuration {
     /// A list of devices that should be created by Pancake.
